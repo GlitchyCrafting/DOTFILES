@@ -1,0 +1,67 @@
+// vim: syntax=json
+
+{
+    "position": "bottom",
+    "height": 35,
+    "spacing": 10,
+    "margin-bottom": 0,
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+    "radius": 0,
+    "ipc": true,
+    "modules-left": ["clock"],
+    "modules-center": ["image", "custom/media"],
+    "modules-right": ["tray", "battery"],
+    "tray": {
+        "spacing": 5
+    },
+    "clock": {
+        "format": "{:%D | %T}",
+        "tooltip": true,
+        "tooltip-format": "{:%A %B %d %Y | %T}",
+        "interval": 1
+    },
+    "cpu": {
+        "interval": 1,
+        "format": "CPU:{usage}%"
+    },
+    "memory": {
+        "interval": 1,
+        "format": "MEM:{percentage}%"
+    },
+    "network": {
+        "interface": "enp10s0",
+        "interval": 1,
+        "format": "NET:↑{bandwidthUpBytes} ↓{bandwidthDownBytes}",
+        "format-wifi": "Net-Name: {essid} | Band:{frequency}GHz | Strength:{signalStrength}% | ↑{bandwidthUpBytes} | ↓{bandwidthDownBytes}",
+        "format-ethernet": "NET:↑{bandwidthUpBytes} ↓{bandwidthDownBytes}"
+    },
+    "battery": {
+        "interval": 1,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "Batt:{capacity}% | Draw:{power}W | {timeTo}",
+        "format-charging": "Batt:{capacity}% | Draw:{power}W | Full:{timeTo}",
+        "format-discharging": "Batt:{capacity}% | Draw:{power}W | Empty:{timeTo}"
+    },
+    "image": {
+        "exec": "~/.config/waybar/album_art.sh",
+        "size": 32,
+        "interval": 5
+    },
+    "custom/media": {
+        "format": "{}",
+        "return-type": "json",
+        "max-length": 32,
+        "escape": true,
+        "exec": "python $HOME/.config/waybar/mediaplayer.py 2> /dev/null",
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl stop",
+        "smooth-scrolling-threshold": 1,
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous"
+    }
+},

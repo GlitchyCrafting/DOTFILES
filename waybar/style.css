@@ -1,0 +1,73 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, "FiraCode Nerd Font", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 0px;
+}
+
+window#waybar {
+    background-color: #15131A;
+    border-bottom: solid 2px #FFFCED;
+    color: #FFFCED;
+    transition-property: background-color;
+    transition-duration: .5s;
+    border-radius: 0px;
+}
+
+button {
+    color: #282430;
+    border: 2px solid #FFFCED;
+}
+
+#clock,
+#custom-media,
+#tray,
+#taskbar button,
+#cpu,
+#memory,
+#network,
+#battery {
+    color: #FFFCED;
+    background-color: transparent;
+}
+
+#tray {
+  margin-right: 4px;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#pulseaudio {
+    color: #FFFCED;
+}
+
+#custom-media {
+    color: #FFFCED;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #FF2C28;
+}
+
+window .modules-left,
+window .modules-center,
+window .modules-right {
+    background-color: #15131A;
+    margin: 2px 5px;
+}
