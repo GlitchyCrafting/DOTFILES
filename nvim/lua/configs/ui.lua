@@ -1,45 +1,73 @@
-require('which-key').setup {
-    window = {
-        border = 'double',
-        position = 'top',
-    },
-    triggers = 'auto',
+require('trouble').setup {
+    auto_open = false,
+    auto_close = true,
+    auto_preview = true,
 }
-require('which-key').register( require('configs.keys'), {prefix = '<leader>'} )
+
+require('goto-preview').setup {border = 'double'}
 
 require('ccc').setup {
     highlighter = {
         auto_enable = true,
-        lsp = true,
-    }
+        lsp = true
+    },
+    win_ops = {border = 'double'}
 }
 
-require('trouble').setup {position = 'top'}
+require('docs-view').setup {}
 
-require('dirbuf').setup {}
+require('fzf-lua').setup { winopts = {border = 'double'} }
 
-require('goto-preview').setup {border = 'shadow'}
+local wk = require('which-key')
+	wk.setup {
+   		window = {border = 'double'},
+        triggers = 'auto',
+        position = 'top'
+   	}
 
-require('docs-view').setup {
-    position = 'right',
-    width = 60,
-}
+    wk.register({
+        b = {'<cmd>lua require("fzf-lua").buffers()<cr>', 'Buffers'},
+
+        f = {name = 'Files'},
+        ff = {'<cmd>lua require("fzf-lua").files()<cr>', 'Find'},
+        fb = {'<cmd>Dirbuf<cr>', 'Browser'},
+        r = {'<cmd>lua require("fzf-lua").oldfiles()<cr>', 'Recent'},
+        fn = {'<cmd>enew<cr>', 'New'},
+        fs = {'<cmd>up<cr>', 'Save Current'},
+        fa = {'<cmd>wa<cr>', 'Save All'},
+
+        g = {name = 'Grep'},
+        gg = {'<cmd>lua require("fzf-lua").lgrep_curbuf()<cr>'},
+        gp = {'<cmd>lua require("fzf-lua").live_grep()<cr>'},
+
+        Q = {'<cmd>qa<cr>', 'Quit'},
+
+        c = {'<cmd>CccPick<cr>', 'Color Picker'},
+
+        D = {'<cmd>DocsViewToggle<cr>', 'Docs'},
+
+        l = {'<cmd>Lazy<cr>', 'Lazy'},
+
+        d = {'<cmd>TroubleToggle<cr>', 'Diagnostics'},
+    },
+    {prefix = '<leader>'}
+)
 
 require('lualine').setup {
     sections = {
-        lualine_a = { 'mode' },
-        lualine_b = { 'branch', 'diff', 'diagnostics' },
-        lualine_c = { 'filename', 'lsp_progress' },
-        lualine_x = { 'encoding', 'fileformat', 'filetype' },
-        lualine_y = { 'progress' },
-        lualine_z = { 'location' },
-    },
-    inactive_sections = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = { 'filename' },
-        lualine_x = { 'location' },
-        lualine_y = {},
-        lualine_z = {},
+        lualine_c = {
+            'lsp_progress',
+            display_components = { 'lsp_client_name', { 'title', 'percentage', 'message' }},
+	        separators = {
+		        component = ' ',
+    		    progress = ' | ',
+    		    message = { pre = '(', post = ')'},
+    		    percentage = { pre = '', post = '%% ' },
+    		    title = { pre = '', post = ': ' },
+    		    lsp_client_name = { pre = '[', post = ']' },
+    		    spinner = { pre = '', post = '' },
+    		    message = { commenced = 'In Progress', completed = 'Completed' },
+    	    },
+        }
     }
 }

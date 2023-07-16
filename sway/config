@@ -50,14 +50,14 @@ set $mod Mod4
 set $term kitty
 set $web librewolf
 set $file pcmanfm
-set $menu /home/gc/.config/rofi/scripts/launcher_t7 | xargs swaymsg exec --
+set $menu rofi -show drun | xargs swaymsg exec --
 
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output DP-1 resolution 1920x1080 position 1920,200 bg /home/gc/.config/sway/wallpapers/215.jpg fill
-output DP-2 resolution 1600x900 position 4864,200 bg /home/gc/.config/sway/wallpapers/128744.jpg fill
-output DP-3 resolution 1280x1024 position 3840,0 transform 270 bg /home/gc/.config/sway/wallpapers/2128247.jpg fill
-output HDMI-A-1 resolution 1920x1080 position 0,200 bg /home/gc/.config/sway/wallpapers/30106.jpg fill
-output eDP-1 resolution 1920x1080 bg /home/gc/.config/sway/wallpapers/215.jpg fill
+output DP-1 resolution 1920x1080 position 1920,200 bg ~/.config/sway/wallpapers/main.jpg fill
+output DP-2 resolution 1600x900 position 4864,200 bg ~/.config/sway/wallpapers/2.jpg fill
+output DP-3 resolution 1280x1024 position 3840,0 transform 270 bg ~/.config/sway/wallpapers/vertical.jpg fill
+output HDMI-A-1 resolution 1920x1080 position 0,200 bg ~/.config/sway/wallpapers/3.jpg fill
+output eDP-1 resolution 1920x1080 bg ~/.config/sway/wallpapers/main.jpg fill
 
 input type:keyboard {
     xkb_layout us

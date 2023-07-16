@@ -2,8 +2,6 @@ configuration {
   show-icons:         false;
 }
 
-/*Dracula theme based on the Purple official rofi theme*/
-
 * {
     font: "Space Mono Nerd Font Mono 12";
     foreground: #FFFCED;
@@ -19,8 +17,8 @@ configuration {
 
 #window {
     background-color: @background-color;
-    border:           1;
-    border-radius: 6;
+    border:           2;
+    border-radius: 0;
     border-color: @bordercolor;
     padding:          5;
 }
@@ -29,7 +27,7 @@ configuration {
     padding: 0;
 }
 #message {
-    border:       1px dash 0px 0px ;
+    border:       1px solid 0px 0px ;
     border-color: @separatorcolor;
     padding:      1px ;
 }
@@ -38,7 +36,7 @@ configuration {
 }
 #listview {
     fixed-height: 0;
-    border:       2px dash 0px 0px ;
+    border:       2px solid 0px 0px ;
     border-color: @bordercolor;
     spacing:      2px ;
     scrollbar:    false;
@@ -91,7 +89,7 @@ configuration {
     padding:      0;
 }
 #sidebar {
-    border:       2px dash 0px 0px ;
+    border:       2px solid 0px 0px ;
     border-color: @separatorcolor;
 }
 #button.selected {
