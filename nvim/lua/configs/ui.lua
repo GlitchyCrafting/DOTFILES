@@ -56,18 +56,20 @@ local wk = require('which-key')
 require('lualine').setup {
     sections = {
         lualine_c = {
-            'lsp_progress',
-            display_components = { 'lsp_client_name', { 'title', 'percentage', 'message' }},
-	        separators = {
-		        component = ' ',
-    		    progress = ' | ',
-    		    message = { pre = '(', post = ')'},
-    		    percentage = { pre = '', post = '%% ' },
-    		    title = { pre = '', post = ': ' },
-    		    lsp_client_name = { pre = '[', post = ']' },
-    		    spinner = { pre = '', post = '' },
-    		    message = { commenced = 'In Progress', completed = 'Completed' },
-    	    },
+            {
+                'lsp_progress',
+                display_components = { 'lsp_client_name', { 'title', 'percentage', 'message' }},
+	            separators = {
+    		        component = ' ',
+        		    progress = ' | ',
+        		    message = { pre = '(', post = ')'},
+        		    percentage = { pre = '', post = '%% ' },
+        		    title = { pre = '', post = ': ' },
+        		    lsp_client_name = { pre = '[', post = ']' },
+        		    spinner = { pre = '', post = '' },
+        		    message = { commenced = 'In Progress', completed = 'Completed' },
+        	    },
+            }
         }
     }
 }

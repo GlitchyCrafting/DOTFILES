@@ -8,14 +8,14 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local servers = {
-    'html', 
-    'cssls', 
-    'bashls', 
-    'cmake', 
-    'marksman', 
-    'jsonls', 
-    'lua_ls', 
-    'pyright', 
+    'html',
+    'cssls',
+    'bashls',
+    'cmake',
+    'marksman',
+    'jsonls',
+    'lua_ls',
+    'pyright',
     'yamlls',
     'dockerls',
     'gdscript',
@@ -42,6 +42,7 @@ require('lspconfig').rust_analyzer.setup {
             procMacro = {enable = true}
         }
     },
+    filetypes = { 'rs', 'rust' },
 }
 
 require('lspconfig').clangd.setup {
@@ -51,7 +52,7 @@ require('lspconfig').clangd.setup {
         'clangd',
         '--background-index',
         '--pch-storage=memory',
-        '--cland-tidy',
+        '--clang-tidy',
         '--suggest-missing-includes',
         '--all-scopes-completion',
         '--pretty',
@@ -60,4 +61,6 @@ require('lspconfig').clangd.setup {
         '--inlay-hints',
         '--header-insertion-decorators',
     },
+    filetypes = { 'c', 'h', 'cpp', 'hpp' },
+    root_dir = require('lspconfig').util.root_pattern('.git', 'compile_commands.json', 'compile_flags.txt')
 }
