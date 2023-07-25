@@ -19,6 +19,7 @@ local servers = {
     'yamlls',
     'dockerls',
     'gdscript',
+    'swift_mesonls'
 }
 
 for _, lsp in pairs(servers) do

@@ -8,7 +8,7 @@ shadow_blur_radius 10
 blur enable
 blur_passes 1
 blur_radius 2
-scratchpad_minimize enable
+scratchpad_minimize disable
 
 layer_effects 'waybar' 'blur enable; shadows enable; corner_radius 0;'
 layer_effects 'eww' 'blur enable; shadows enable; corner_radius 0;'
