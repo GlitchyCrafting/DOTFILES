@@ -17,7 +17,7 @@
         "spacing": 5
     },
     "clock": {
-        "format": "{:%D | %T}",
+        "format": "{:%D | %H:%M:%S}",
         "tooltip": true,
         "tooltip-format": "{:%A %B %d %Y | %T}",
         "interval": 1

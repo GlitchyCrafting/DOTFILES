@@ -14,8 +14,6 @@ require('ccc').setup {
     win_ops = {border = 'double'}
 }
 
-require('docs-view').setup {}
-
 require('fzf-lua').setup { winopts = {border = 'double'} }
 
 local wk = require('which-key')
@@ -37,8 +35,19 @@ local wk = require('which-key')
         fa = {'<cmd>wa<cr>', 'Save All'},
 
         g = {name = 'Grep'},
-        gg = {'<cmd>lua require("fzf-lua").lgrep_curbuf()<cr>'},
-        gp = {'<cmd>lua require("fzf-lua").live_grep()<cr>'},
+        gg = {'<cmd>lua require("fzf-lua").lgrep_curbuf()<cr>', 'Current Buffer'},
+        gp = {'<cmd>lua require("fzf-lua").live_grep_native()<cr>', 'Project'},
+        gr = {'<cmd>lua require("fzf-lua").oldfiles()<cr>', 'Recent Files'},
+        gb = {'<cmd>lua require("fzf-lua").buffers()<cr>', 'All Buffers'},
+        gc = {'<cmd>lua require("fzf-lua").commands()<cr>', 'Commands'},
+        gs = {'<cmd>lua require("fzf-lua").spell_suggest()<cr>', 'Spelling'},
+
+        G = {name = 'GOTO'},
+        Gd = {'<cmd>lua require("goto-preview").goto_preview_definition()<cr>', 'Definition'},
+        Gt = {'<cmd>lua require("goto-preview").goto_preview_type_definition()<cr>', 'TypeDef'},
+        Gi = {'<cmd>lua require("goto-preview").goto_preview_implementation()<cr>', 'Implementation'},
+        Gc = {'<cmd>lua require("goto-preview").close_all_win()<cr>', 'Close'},
+        Gr = {'<cmd>lua require("goto-preview").goto_preview_references()<cr>', 'References'},
 
         Q = {'<cmd>qa<cr>', 'Quit'},
 

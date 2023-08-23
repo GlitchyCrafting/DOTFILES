@@ -5,7 +5,7 @@ set VIRTUAL_ENV_DISABLE_PROMPT "1"
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set RUSTC_WRAPPER "sccache cargo install {package}"
 
-shopt -s autocd
+# shopt -s autocd
 
 ## Environment setup
 # Apply .profile: use this to put fish compatible .profile stuff in
@@ -20,20 +20,19 @@ if test -d ~/.local/bin
     end
 end
 
+# Add ~/.cargo/bin to PATH
+if test -d ~/.cargo/bin
+    if not contains -- ~/.cargo/bin $PATH
+        set -p PATH ~/.cargo/bin
+    end
+end
+
 # Add rofi to PATH
 if test -d ~/.config/rofi/bin
     if not contains -- ~/.config/rofi/bin $PATH
     	set -p PATH ~/.config/rofi/bin
     end
 end
-
-# Add depot_tools to PATH
-if test -d ~/Applications/depot_tools
-    if not contains -- ~/Applications/depot_tools $PATH
-        set -p PATH ~/Applications/depot_tools
-    end
-end
-
 
 ## Starship prompt
 if status --is-interactive
@@ -92,7 +91,8 @@ end
 
 ##  My Aliases
 alias neofetch='neofetch | lol'
-alias clear='clear && neofetch && exa -l --color=always --group-directories-first --icons'
+alias clear='clear && exa -l --color=always --group-directories-first --icons'
+alias gnvim='nvim --listen ~/.cache/nvim/godot.pipe'
 alias vim='nvim'
 alias vi='nvim'
 alias fishconf='nvim ~/.config/fish/config.fish'
@@ -123,7 +123,6 @@ alias wget='wget -c '
 alias rmpkg="sudo pacman -Rdd"
 alias psmem='ps auxf | sort -nr -k 4'
 alias psmem10='ps auxf | sort -nr -k 4 | head -10'
-alias upd='/usr/bin/update'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -131,9 +130,9 @@ alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+alias grep='rg --color=auto'
+alias fgrep='rg -F --color=auto'
+alias egrep='rg -E --color=auto'
 alias hw='hwinfo --short'                                   # Hardware Info
 alias big="expac -H M '%m\t%n' | sort -h | nl"              # Sort installed packages according to size in MB
 alias gitpkg='pacman -Q | grep -i "\-git" | wc -l'			# List amount of -git packages
@@ -159,5 +158,5 @@ fish_config theme choose "glitchcandy"
 
 ## Run neofetch if session is interactive
 if status --is-interactive
-    clear
+    neofetch
 end
