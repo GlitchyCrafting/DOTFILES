@@ -44,7 +44,7 @@ exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
 # Startup Applications
 exec lxsession
 exec mako
-exec ~/.config/sway/scripts/kb_layout_toggle.sh
+# exec ~/.config/sway/scripts/kb_layout_toggle.sh
 
 set $mod Mod4
 set $term kitty
@@ -59,15 +59,28 @@ output DP-3 resolution 1280x1024 position 3840,0 transform 270 bg ~/.config/sway
 output HDMI-A-1 resolution 1920x1080 position 0,200 bg ~/.config/sway/wallpapers/3.jpg fill
 output eDP-1 resolution 1920x1080 bg ~/.config/sway/wallpapers/main.jpg fill
 
-input type:keyboard {
+input 14648:4613:KMF_Onn_Mechanical_Gaming_Keyboard {
     xkb_layout us
     xkb_variant colemak
+    xkb_numlock true
+    xkb_options caps:backspace
+}
+
+input type:keyboard {
+    xkb_layout us
     xkb_numlock enabled
     xkb_options caps:backspace
 }
 
 input type:mouse {
     dwt true
+}
+
+input type:touchpad {
+    dwt true
+    tap false
+    natural_scroll true
+    middle_emulation true
 }
 
     # Start default apps
