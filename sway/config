@@ -176,13 +176,21 @@ input type:touchpad {
     # Volume
     bindsym $mod+insert exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $WOBSOCK
     bindsym $mod+delete exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $WOBSOCK
-    bindsym $mod+home        exec pactl set-sink-mute   @DEFAULT_SINK@ toggle
+    bindsym $mod+home   exec pactl set-sink-mute   @DEFAULT_SINK@ toggle
+    # Laptop
+    bindsym XF86VolumeUp exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $WOBSOCK
+    bindsym XF86VolumeDown exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $WOBSOCK
+    bindsym XF86VolumeMute exec pactl set-sink-mute   @DEFAULT_SINK@ toggle
 
     # Media
     bindsym $mod+print exec playerctl play-pause
-    bindsym XF86AudioStop exec playerctl stop
     bindsym $mod+scroll_lock exec playerctl previous
     bindsym $mod+pause exec playerctl next
+    # Laptop
+    bindsym XF86AudioPlay exec playerctl play-pause
+    bindsym XF86AudioStop exec playerctl stop
+    bindsym XF86AudioNext exec playerctl next
+    bindsym XF86AudioPrev exec playerctl previous
 
     # Brightness
     bindsym XF86MonBrightnessDown exec brightnessctl set 5%- | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK
