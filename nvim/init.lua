@@ -4,9 +4,8 @@ local opt        = vim.opt
 local A          = vim.api
 
 o.compatible     = false
-o.backspace      = 2
+o.backspace      = 'eol,indent,space'
 o.ruler          = true
-o.confirm        = true
 o.termguicolors  = true
 o.t_Co           = 256
 o.timeoutlen     = 0
