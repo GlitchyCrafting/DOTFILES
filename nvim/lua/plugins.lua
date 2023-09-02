@@ -54,7 +54,7 @@ require("lazy").setup(
 		{'AckslD/nvim-neoclip.lua', requires = {{'kkharji/sqlite.lua', module = 'sqlite'}}},
 
 		{
-			'http://gcserver.home:3000/gc/glitchcandy-nvim.git',
+			'https://github.com/GlitchyCrafting/glitchcandy-nvim.git',
 			lazy = false,
 			priority = 1000,
 			config = function ()

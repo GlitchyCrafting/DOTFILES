@@ -65,3 +65,9 @@ require('lspconfig').clangd.setup {
     filetypes = { 'c', 'h', 'cpp', 'hpp' },
     root_dir = require('lspconfig').util.root_pattern('.git', 'compile_commands.json', 'compile_flags.txt')
 }
+
+require('lspconfig').html.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = {'html', 'hxml', 'htmx', 'tera', 'hbs'},
+}
