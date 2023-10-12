@@ -1,0 +1,6 @@
+
+2022/12/31 (19:04:07) | ===> btop++ v.1.2.13
+2022/12/31 (19:04:07) | WARNING: Failed to get disk/partition stats for mount "/run/user/1000/doc" with statvfs64 error code: 1. Ignoring...
+
+2023/01/01 (07:08:50) | ===> btop++ v.1.2.13
+2023/01/01 (07:08:50) | WARNING: Failed to get disk/partition stats for mount "/run/user/1000/doc" with statvfs64 error code: 1. Ignoring...

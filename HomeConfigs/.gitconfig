@@ -1,0 +1,6 @@
+[init]
+	defaultBranch = main
+[credential]
+	helper = cache
+[protocol "file"]
+	allow = always
