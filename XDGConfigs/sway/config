@@ -6,8 +6,8 @@ gaps outer 2
 shadows enable
 shadow_blur_radius 10
 blur enable
-blur_passes 1
-blur_radius 2
+blur_passes 2
+blur_radius 8
 scratchpad_minimize enable
 
 # Window Decoration
@@ -38,7 +38,7 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
 # Startup Applications
 exec lxsession
 exec mako
-exec swayosd-server
+exec swayosd-server --top-margin 0.15
 
 set $mod Mod4
 set $term kitty
@@ -49,9 +49,9 @@ set $menu fuzzel
 set $wall_dir ~/Pictures/Wallpapers
 output * bg $wall_dir/main.jpg fill
 output DP-1 resolution 1920x1080 position 1920,200 bg $wall_dir/main.jpg fill
-output DP-2 resolution 1600x900  position 4864,200 bg $wall_dir/wallpapers/2.jpg fill
+output DP-2 resolution 1600x900  position 4864,200 bg $wall_dir/2.jpg fill
 output DP-3 resolution 1280x1024 position 3840,0 transform 270 bg $wall_dir/vertical.jpg fill
-output HDMI-A-1 resolution 1920x1080 position 0,200 bg $wall_dir/wallpapers/3.jpg fill
+output HDMI-A-1 resolution 1920x1080 position 0,200 bg $wall_dir/3.jpg fill
 
 input 14648:4613:KMF_Onn_Mechanical_Gaming_Keyboard {
     xkb_layout us
@@ -159,9 +159,9 @@ input type:touchpad {
     bindsym $mod+a focus parent
 
     # Move the currently focused window to the scratchpad
-    bindsym mod1+Shift+Tab move scratchpad
+    bindsym Alt+Shift+Tab move scratchpad
     # Show the next scratchpad window or hide the focused scratchpad window.
-    bindsym mod1+Tab scratchpad show
+    bindsym Alt+Tab scratchpad show
 
     # Screenshots
     bindsym print exec grimshot --notify save active
