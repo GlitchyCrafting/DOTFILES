@@ -3,9 +3,6 @@
 [resource]
 interface/editor/use_embedded_menu = true
 interface/editor/code_font_contextual_ligatures = 0
-interface/editor/main_font = "/home/gc/Downloads/Fonts/SpaceGrotesk-Medium.ttf"
-interface/editor/main_font_bold = "/home/gc/Downloads/Fonts/SpaceMono-Bold.woff2"
-interface/editor/code_font = "/home/gc/Downloads/Fonts/SpaceMono-Nerd.otf"
 interface/editor/single_window_mode = true
 interface/theme/preset = "Custom"
 interface/theme/base_color = Color(0.0823529, 0.0745098, 0.101961, 1)
@@ -20,7 +17,8 @@ filesystem/external_programs/raster_image_editor = "/bin/gimp"
 filesystem/external_programs/vector_image_editor = "/bin/inkscape"
 filesystem/external_programs/audio_editor = "/bin/audacity"
 filesystem/external_programs/3d_model_editor = "/bin/blender"
-filesystem/directories/default_project_path = "/home/gc/Projects/GODOT"
+filesystem/directories/autoscan_project_path = "/home/gruff/Projects/GODOT/"
+filesystem/directories/default_project_path = "/home/gruff/Projects/GODOT/"
 docks/filesystem/textfile_extensions = "txt,md,log"
 text_editor/theme/color_theme = "Custom"
 text_editor/theme/highlighting/symbol_color = Color(0.188235, 1, 0.937255, 1)
@@ -119,7 +117,7 @@ editors/3d/navigation/show_viewport_navigation_gizmo = false
 text_editor/behavior/files/auto_reload_and_parse_scripts_on_save = true
 text_editor/behavior/files/open_dominant_script_on_scene_change = true
 text_editor/external/use_external_editor = true
-text_editor/external/exec_path = "/home/gc/Projects/GODOT/ext_edit.sh"
+text_editor/external/exec_path = "/home/gruff/Projects/GODOT/ext_edit.sh"
 text_editor/script_list/script_temperature_enabled = true
 text_editor/script_list/script_temperature_history_size = 15
 text_editor/script_list/group_help_pages = true
@@ -201,6 +199,7 @@ metadata/script_setup_templates_dictionary = {
 "PanelContainer": "0NodeDefault",
 "RigidBody2D": "0NodeDefault",
 "ScrollContainer": "0NodeDefault",
+"SkeletonIK3D": "0NodeDefault",
 "Sprite2D": "0NodeDefault",
 "VBoxContainer": "0NodeDefault",
 "n": "0ObjectEmpty",

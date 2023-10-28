@@ -8,7 +8,7 @@ format = " [╭─$user]($style)@"
 
 show_always = true
 
-style_root = "bold red"
+style_root = "bold purple"
 
 style_user = "bold purple"
 
@@ -86,7 +86,7 @@ full_symbol = ""
 
 disabled = false
 
-style = "bold red"
+style = "bold purple"
 
 threshold = 15
 
@@ -124,7 +124,7 @@ time_format = "%T"
 
 error_symbol = " [×](bold red)"
 
-success_symbol = " [╰─λ](bold red)"
+success_symbol = " [╰─λ](bold purple)"
 
 # SYMBOLS
 
