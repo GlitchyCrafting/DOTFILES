@@ -13,6 +13,10 @@ require('cmp-plugins').setup {files = {"plugins.lua"} }
 cmp.setup {
     enabled = {
         function()
+            if require("cmp_dap").is_dap_buffer() then
+                return require("cmp_dap").is_dap_buffer()
+            end
+
             local context = require('cmp.config.context')
             if vim.api.nvim_get_mode().mode == 'c' then
                 return true
@@ -69,7 +73,14 @@ cmp.setup {
         }),
     },
     sources = cmp.config.sources ({
+        {
+            name = "cmp_yanky",
+            option = {
+                onlyCurrentFiletype = true,
+            },
+        },
         {name = 'calc'},
+        {name = 'doxygen'},
         {name = 'nerdfont'},
         {name = 'emoji'},
         {name = 'latex_symbols'},
@@ -84,6 +95,7 @@ cmp.setup {
         {name = 'async_path'},
         {name = 'spell'},
         {name = 'treesitter'},
+        {name = 'fonts'},
     }, {
         {name = 'buffer'},
     }),

@@ -40,17 +40,23 @@ require("lazy").setup(
         'hrsh7th/cmp-emoji',
         'kdheepak/cmp-latex-symbols',
         'mtoohey31/cmp-fish',
+        'amarakon/nvim-cmp-fonts',
+        'chrisgrieser/cmp_yanky',
 
 		'numToStr/Comment.nvim',
 		'folke/todo-comments.nvim',
 		'f-person/git-blame.nvim',
 		'nvim-treesitter/nvim-treesitter',
-        'nvim-treesitter/nvim-treesitter-textobjects',
+		'nvim-treesitter/nvim-treesitter-textobjects',
 		'windwp/nvim-ts-autotag',
 		'lukas-reineke/indent-blankline.nvim',
 		'jghauser/mkdir.nvim',
 		'mcauley-penney/tidy.nvim',
 		'windwp/nvim-autopairs',
+        'jubnzv/virtual-types.nvim',
+        'mawkler/modicator.nvim',
+        'gbprod/yanky.nvim',
+        'gpanders/editorconfig.nvim',
 		{'AckslD/nvim-neoclip.lua', requires = {{'kkharji/sqlite.lua', module = 'sqlite'}}},
 
 		{
@@ -68,8 +74,6 @@ require("lazy").setup(
 		'folke/which-key.nvim',
 		'folke/trouble.nvim',
 		'elihunter173/dirbuf.nvim',
-		'rmagatti/goto-preview',
-
 	},
 	{ ui = {border = "double"} }
 )

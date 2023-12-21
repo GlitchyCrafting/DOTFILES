@@ -2,6 +2,7 @@ require('mason').setup { ui = {border = 'double'} }
 
 local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    return require('virtualtypes').on_attach
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -13,13 +14,9 @@ local servers = {
     'bashls',
     'cmake',
     'marksman',
-    'jsonls',
     'lua_ls',
     'pyright',
-    'yamlls',
-    'dockerls',
     'gdscript',
-    'swift_mesonls'
 }
 
 for _, lsp in pairs(servers) do

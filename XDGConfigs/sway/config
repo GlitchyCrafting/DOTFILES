@@ -226,6 +226,12 @@ for_window [app_id="firefox" title="Library"] floating enable, border pixel 1, s
 for_window [app_id="floating_shell_portrait"] floating enable, border pixel 1, sticky enable, resize set width 30 ppt height 40 ppt
 for_window [title="Picture in picture"] floating enable, sticky enable
 for_window [title="Save File"] floating enable
+
+# Godot Specific
+for_window [title="Create New Node"] floating enable
+for_window [title="Export Template Manager"] floating enable
+for_window [title="Uninstall Template"] floating enable
+
 for_window [app_id="firefox" title="firefox — Sharing Indicator"] kill
 
 include /etc/sway/config.d/*

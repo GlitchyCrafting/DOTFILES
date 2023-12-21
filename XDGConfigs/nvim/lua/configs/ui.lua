@@ -4,8 +4,6 @@ require('trouble').setup {
     auto_preview = true,
 }
 
-require('goto-preview').setup {border = 'double'}
-
 require('ccc').setup {
     highlighter = {
         auto_enable = true,
@@ -17,50 +15,56 @@ require('ccc').setup {
 require('fzf-lua').setup { winopts = {border = 'double'} }
 
 local wk = require('which-key')
-	wk.setup {
-   		window = {border = 'double'},
-        triggers = 'auto',
-        position = 'top'
-   	}
+wk.setup {
+    window = {border = 'double'},
+    triggers = 'auto',
+    position = 'top'
+}
 
-    wk.register({
-        b = {'<cmd>lua require("fzf-lua").buffers()<cr>', 'Buffers'},
+wk.register({
+    b = {'<cmd>lua require("fzf-lua").buffers()<cr>', 'Buffers'},
 
-        f = {name = 'Files'},
-        ff = {'<cmd>lua require("fzf-lua").files()<cr>', 'Find'},
-        fb = {'<cmd>Dirbuf<cr>', 'Browser'},
-        r = {'<cmd>lua require("fzf-lua").oldfiles()<cr>', 'Recent'},
-        fn = {'<cmd>enew<cr>', 'New'},
-        fs = {'<cmd>up<cr>', 'Save Current'},
-        fa = {'<cmd>wa<cr>', 'Save All'},
+    f = {name = 'Files'},
+    ff = {'<cmd>lua require("fzf-lua").files()<cr>', 'Find'},
+    fb = {'<cmd>Dirbuf<cr>', 'Browser'},
+    fr = {'<cmd>lua require("fzf-lua").oldfiles()<cr>', 'Recent'},
+    fn = {'<cmd>enew<cr>', 'New'},
+    fs = {'<cmd>up<cr>', 'Save Current'},
+    fa = {'<cmd>wa<cr>', 'Save All'},
 
-        g = {name = 'Grep'},
-        gg = {'<cmd>lua require("fzf-lua").lgrep_curbuf()<cr>', 'Current Buffer'},
-        gp = {'<cmd>lua require("fzf-lua").live_grep_native()<cr>', 'Project'},
-        gr = {'<cmd>lua require("fzf-lua").oldfiles()<cr>', 'Recent Files'},
-        gb = {'<cmd>lua require("fzf-lua").buffers()<cr>', 'All Buffers'},
-        gc = {'<cmd>lua require("fzf-lua").commands()<cr>', 'Commands'},
-        gs = {'<cmd>lua require("fzf-lua").spell_suggest()<cr>', 'Spelling'},
+    s = {name = 'Search'},
+    sg = {'<cmd>lua require("fzf-lua").lgrep_curbuf()<cr>', 'Current Buffer'},
+    sp = {'<cmd>lua require("fzf-lua").live_grep_native()<cr>', 'Project'},
+    sr = {'<cmd>lua require("fzf-lua").oldfiles()<cr>', 'Recent Files'},
+    sb = {'<cmd>lua require("fzf-lua").buffers()<cr>', 'All Buffers'},
+    sc = {'<cmd>lua require("fzf-lua").commands()<cr>', 'Commands'},
+    ss = {'<cmd>lua require("fzf-lua").spell_suggest()<cr>', 'Spelling'},
 
-        G = {name = 'GOTO'},
-        Gd = {'<cmd>lua require("goto-preview").goto_preview_definition()<cr>', 'Definition'},
-        Gt = {'<cmd>lua require("goto-preview").goto_preview_type_definition()<cr>', 'TypeDef'},
-        Gi = {'<cmd>lua require("goto-preview").goto_preview_implementation()<cr>', 'Implementation'},
-        Gc = {'<cmd>lua require("goto-preview").close_all_win()<cr>', 'Close'},
-        Gr = {'<cmd>lua require("goto-preview").goto_preview_references()<cr>', 'References'},
+    w = {name = 'Window'},
+    wv = {'<C-w>v', 'Vertical Split'},
+    wh = {'<C-w>s', 'Horizontal Split'},
+    ww = {'<C-w>w', 'Focus Next'},
+    wW = {'<C-w>W', 'Focus Previous'},
 
-        Q = {'<cmd>qa<cr>', 'Quit'},
+    y = {name = 'Yanky'},
+    yp = {'YankyPutAfter', 'Put After'},
+    yP = {'YankyPutBefore', 'Put Before'},
+    yg = {'YankyGPutAfter', 'GPut After'},
+    yG = {'YankyGPutBefore', 'GPut Before'},
+    yf = {'YankyCycleForward', 'Cycle Forward'},
+    yb = {'YankyCycleBackward', 'Cycle Backward'},
 
-        c = {'<cmd>CccPick<cr>', 'Color Picker'},
+    Q = {'<cmd>qa<cr>', 'Quit'},
 
-        D = {'<cmd>DocsViewToggle<cr>', 'Docs'},
+    c = {'<cmd>CccPick<cr>', 'Color Picker'},
 
-        l = {'<cmd>Lazy<cr>', 'Lazy'},
+    l = {'<cmd>Lazy<cr>', 'Lazy'},
 
-        d = {'<cmd>TroubleToggle<cr>', 'Diagnostics'},
-    },
-    {prefix = '<leader>'}
-)
+    d = {'<cmd>TroubleToggle<cr>', 'Diagnostics'},
+}, {
+    mode = {'n', 'v'},
+    prefix = '<leader>'
+})
 
 require('lualine').setup {
     sections = {

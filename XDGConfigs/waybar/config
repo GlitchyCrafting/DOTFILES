@@ -48,7 +48,7 @@
         "format-discharging": "Batt:{capacity}% | Draw:{power}W | Empty:{timeTo}"
     },
     "image": {
-        "exec": "~/.config/waybar/album_art.sh",
+        "exec": "~/Scripts/waybar/album_art.sh",
         "size": 32,
         "interval": 5
     },
@@ -57,7 +57,7 @@
         "return-type": "json",
         "max-length": 32,
         "escape": true,
-        "exec": "python $HOME/.config/waybar/mediaplayer.py 2> /dev/null",
+        "exec": "python $HOME/Scripts/waybar/mediaplayer.py 2> /dev/null",
         "on-click": "playerctl play-pause",
         "on-click-right": "playerctl stop",
         "smooth-scrolling-threshold": 1,
