@@ -4,3 +4,6 @@
 	helper = cache
 [protocol "file"]
 	allow = always
+[user]
+	email = glitchycrafting@gmail.com
+	name = Gruficlath
