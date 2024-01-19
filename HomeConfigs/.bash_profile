@@ -10,3 +10,8 @@ export CC=/bin/clang
 export CC_LD=/bin/mold
 export CXX=/bin/clang++
 export CXX_LD=/bin/mold
+
+if [[ -e "/usr/bin/nvim" ]]
+    alias vim=nvim
+    alias vi=nvim
+fi
