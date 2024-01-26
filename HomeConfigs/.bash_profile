@@ -6,6 +6,7 @@ export XDG_CURRENT_SESION_TYPE=wayland
 export GDK_BACKEND="wayland,x11"
 export MOZ_ENABLE_WAYLAND=1
 export XCURSOR_THEME=Sweet-cursors
+export _JAVA_AWT_WM_NONREPARENTING=1
 export CC=/bin/clang
 export CC_LD=/bin/mold
 export CXX=/bin/clang++

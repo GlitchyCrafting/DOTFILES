@@ -27,6 +27,32 @@ for _, lsp in pairs(servers) do
     }
 end
 
+require('lspconfig').clangd.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = {
+        'clangd',
+        '--background-index',
+        '--pch-storage=memory',
+        '--clang-tidy',
+        '--suggest-missing-includes',
+        '--all-scopes-completion',
+        '--pretty',
+        '--header-insertion=never',
+        '-j=8',
+        '--header-insertion-decorators',
+    },
+    filetypes = { 'c', 'h', 'cpp', 'hpp' },
+    root_dir = require('lspconfig').util.root_pattern('.git', 'compile_commands.json', 'compile_flags.txt')
+}
+
+require('lspconfig').glsl_analyzer.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = { "glsl_analyzer" },
+    filetypes = { 'glsl', 'vert', 'frag', 'tesc', 'tese', 'geom', 'comp' },
+}
+
 require('lspconfig').rust_analyzer.setup {
     on_attach = on_attach,
     capabilities = capabilities,
@@ -43,28 +69,18 @@ require('lspconfig').rust_analyzer.setup {
     filetypes = { 'rs', 'rust' },
 }
 
-require('lspconfig').clangd.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    cmd = {
-        'clangd',
-        '--background-index',
-        '--pch-storage=memory',
-        '--clang-tidy',
-        '--suggest-missing-includes',
-        '--all-scopes-completion',
-        '--pretty',
-        '--header-insertion=never',
-        '-j=8',
-        '--inlay-hints',
-        '--header-insertion-decorators',
-    },
-    filetypes = { 'c', 'h', 'cpp', 'hpp' },
-    root_dir = require('lspconfig').util.root_pattern('.git', 'compile_commands.json', 'compile_flags.txt')
-}
-
 require('lspconfig').html.setup {
     on_attach = on_attach,
     capabilities = capabilities,
     filetypes = {'html', 'hxml', 'htmx', 'tera', 'hbs'},
+}
+
+require('lspconfig').omnisharp.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = {'cs', 'vb'},
+    cmd = {
+        'omnisharp',
+        '-lsp'
+    }
 }

@@ -50,4 +50,16 @@ A.nvim_create_autocmd('TextYankPost', {
 	end
 })
 
+vim.cmd([[
+au BufRead *.vert,*.frag,*.tesc,*.tese,*.geom,*.comp :set filetype=glsl
+]])
+
 require('plugins')
+
+if vim.g.neovide then
+   vim.o.guifont = "FiraCode_Nerd_Font,Noto_Color_Emoji:h12"
+   vim.g.transparency = 0.85
+   vim.g.neovide_transparency = 0.85
+   vim.g.neovide_hide_mouse_when_typing = true
+   vim.g.neovide_cursor_vfx_mode = "sonicboom"
+end

@@ -2,14 +2,21 @@ require('trouble').setup {
     auto_open = false,
     auto_close = true,
     auto_preview = true,
+    win_config = { border = "double" },
+    use_diagnostic_signs = true
 }
 
 require('ccc').setup {
     highlighter = {
         auto_enable = true,
-        lsp = true
+        lsp = true,
+        update_insert = true,
     },
-    win_ops = {border = 'double'}
+    win_ops = {border = 'double'},
+    mappings = {
+        ["<left>"] = require('ccc').mapping.decrease,
+        ["<right>"] = require('ccc').mapping.increase,
+    }
 }
 
 require('fzf-lua').setup { winopts = {border = 'double'} }
@@ -47,12 +54,12 @@ wk.register({
     wW = {'<C-w>W', 'Focus Previous'},
 
     y = {name = 'Yanky'},
-    yp = {'YankyPutAfter', 'Put After'},
-    yP = {'YankyPutBefore', 'Put Before'},
-    yg = {'YankyGPutAfter', 'GPut After'},
-    yG = {'YankyGPutBefore', 'GPut Before'},
-    yf = {'YankyCycleForward', 'Cycle Forward'},
-    yb = {'YankyCycleBackward', 'Cycle Backward'},
+    yp = {'<cmd>YankyPutAfter<cr>', 'Put After'},
+    yP = {'<cmd>YankyPutBefore<cr>', 'Put Before'},
+    yg = {'<cmd>YankyGPutAfter<cr>', 'GPut After'},
+    yG = {'<cmd>YankyGPutBefore<cr>', 'GPut Before'},
+    yf = {'<cmd>YankyCycleForward<cr>', 'Cycle Forward'},
+    yb = {'<cmd>YankyCycleBackward<cr>', 'Cycle Backward'},
 
     Q = {'<cmd>qa<cr>', 'Quit'},
 

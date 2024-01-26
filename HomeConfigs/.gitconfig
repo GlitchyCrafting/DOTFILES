@@ -7,3 +7,5 @@
 [user]
 	email = glitchycrafting@gmail.com
 	name = Gruficlath
+[pull]
+	rebase = true
