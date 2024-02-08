@@ -2,7 +2,7 @@
 # Hide welcome message
 set fish_greeting
 set VIRTUAL_ENV_DISABLE_PROMPT "1"
-set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
+set -x MANPAGER "batman"
 set RUSTC_WRAPPER "sccache cargo install {package}"
 
 ## Environment setup
@@ -66,7 +66,8 @@ end
 
 ##  My Aliases
 alias neofetch='neofetch'
-alias gnvim='nvim --listen ~/.cache/nvim/godot.pipe'
+alias rnvim='nvim --listen ~/.cache/nvim/remote.pipe'
+alias edit='~/Scripts/neovide/edit.sh'
 alias vim='nvim'
 alias vi='nvim'
 alias fishconf='nvim ~/.config/fish/config.fish'
@@ -74,6 +75,7 @@ alias rm='trash-put'
 alias res='trash-restore'
 alias tls='trash-list'
 alias tem='trash-empty'
+alias man='batman'
 
 ## Useful aliases
 # Replace ls with exa
@@ -133,3 +135,6 @@ fish_config theme choose "glitchcandy"
 if status --is-interactive
     neofetch
 end
+
+# Created by `pipx` on 2023-12-21 20:07:31
+set PATH $PATH /home/gruff/.local/bin

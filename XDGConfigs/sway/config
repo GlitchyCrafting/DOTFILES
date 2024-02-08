@@ -38,7 +38,9 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
 # Startup Applications
 exec lxsession
 exec mako
-exec swayosd-server --top-margin 0.15
+
+# Remove the nvim-remote pipe so nvim can recreate it
+exec rm ~/.cache/nvim/remote.pipe
 
 set $mod Mod4
 set $term kitty
@@ -155,7 +157,7 @@ input type:touchpad {
     bindsym $mod+space floating toggle
     # Swap focus between the tiling area and the floating area
     bindsym $mod+Shift+space focus mode_toggle
-    # Move focus to the parent container
+    #Move focus to the parent container
     bindsym $mod+a focus parent
 
     # Move the currently focused window to the scratchpad
@@ -170,14 +172,14 @@ input type:touchpad {
     bindsym Alt+Shift+print exec grinshot --notify copy area
 
     # Volume
-    bindsym $mod+insert exec swayosd --top-margin 0.1 --output-volume 5
-    bindsym $mod+delete exec swayosd --top-margin 0.1 --output-volume -5
-    bindsym $mod+home   exec swayosd --top-margin 0.1 --output-volume mute-toggle
-    bindsym $mod+end    exec swayosd --top-margin 0.1 --input-volume mute-toggle
+    bindsym $mod+insert exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    bindsym $mod+delete exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+    bindsym $mod+home   exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym $mod+end    exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
     # Laptop
-    bindsym XF86AudioRaiseVolume exec swayosd --top-margin 0.1 --output-volume 5
-    bindsym XF86AudioLowerVolume exec swayosd --top-margin 0.1 --output-volume -5
-    bindsym XF86AudioMute        exec swayosd --top-margin 0.1 --output-volume mute-toggle
+    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+    bindsym XF86AudioMute        exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
     # Media
     bindsym $mod+print       exec playerctl play-pause
@@ -190,8 +192,8 @@ input type:touchpad {
     bindsym XF86AudioPrev exec playerctl previous
 
     # Brightness
-    bindsym XF86MonBrightnessDown exec swayosd --top-margin 0.1 --brightness -10
-    bindsym XF86MonBrightnessUp   exec swayosd --top-margin 0.1 --brightness 10
+    bindsym XF86MonBrightnessDown exec brightnessctl +5%
+    bindsym XF86MonBrightnessUp   exec brightnessctl -5%
 
 mode "resize" {
     bindsym Left resize shrink width 10px

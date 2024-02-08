@@ -15,16 +15,16 @@ o.numberwidth    = 2
 o.relativenumber = true
 o.signcolumn     = 'yes'
 o.cursorline     = true
-o.expandtab      = true
+o.expandtab      = false
 o.smarttab       = true
 o.cindent        = true
 o.autoindent     = true
 o.wrap           = true
-o.textwidth      = 300
+o.textwidth      = 80
 o.tabstop        = 4
 o.shiftwidth     = 4
 o.softtabstop    = -1
-o.formatoptions  = 'qrn1'
+o.formatoptions  = 'crqan1'
 o.ignorecase     = true
 o.smartcase      = true
 o.backup         = false
@@ -57,9 +57,9 @@ au BufRead *.vert,*.frag,*.tesc,*.tese,*.geom,*.comp :set filetype=glsl
 require('plugins')
 
 if vim.g.neovide then
-   vim.o.guifont = "FiraCode_Nerd_Font,Noto_Color_Emoji:h12"
-   vim.g.transparency = 0.85
-   vim.g.neovide_transparency = 0.85
-   vim.g.neovide_hide_mouse_when_typing = true
-   vim.g.neovide_cursor_vfx_mode = "sonicboom"
+	vim.o.guifont = "FiraCode_Nerd_Font,Noto_Color_Emoji:h12"
+	vim.g.transparency = 0.85
+	vim.g.neovide_transparency = 0.85
+	vim.g.neovide_hide_mouse_when_typing = true
+	vim.g.neovide_cursor_vfx_mode = "sonicboom"
 end
