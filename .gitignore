@@ -1,3 +1,7 @@
 **cache**
 **log**
 **profiler**
+**bin/**
+**.cargo/git/**
+**.cargo/registry/**
+**.crates**
