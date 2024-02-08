@@ -48,14 +48,13 @@ require("lazy").setup(
 		'gpanders/editorconfig.nvim',
 
 		{
-			'https://github.com/GlitchyCrafting/glitchcandy-nvim.git',
+			'https://github.com/glitchcandy/glitchcandy-nvim.git',
 			lazy = false,
 			priority = 1000,
 			config = function ()
 				vim.cmd([[colorscheme glitchcandy_nvim]])
 			end,
 		},
-		'https://github.com/GlitchyCrafting/glitchcandy-vim.git',
 		'ibhagwan/fzf-lua',
 		'nvim-lualine/lualine.nvim',
 		'arkav/lualine-lsp-progress',
