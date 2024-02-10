@@ -34,6 +34,7 @@ require("lazy").setup(
 		'hrsh7th/cmp-emoji',
 		'amarakon/nvim-cmp-fonts',
 		'chrisgrieser/cmp_yanky',
+		'rcarriga/cmp-dap',
 
 		'numToStr/Comment.nvim',
 		'folke/todo-comments.nvim',

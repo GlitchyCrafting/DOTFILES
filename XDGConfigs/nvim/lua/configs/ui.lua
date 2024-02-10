@@ -25,7 +25,6 @@ require("oil").setup {
 		"icon",
 		"permissions",
 		"size",
-		"mtime",
 	},
 	view_options = {
 		show_hidden = true,
@@ -41,7 +40,9 @@ require('toggleterm').setup {
 	shell = "/bin/fish",
 }
 
-require('fzf-lua').setup { winopts = {border = 'double'} }
+require('fzf-lua').setup {
+	winopts = {border = 'double'},
+}
 
 local wk = require('which-key')
 wk.setup {
@@ -54,20 +55,31 @@ wk.register({
 	b = {'<cmd>lua require("fzf-lua").buffers()<cr>', 'Buffers'},
 
 	f = {name = 'Files'},
-	ff = {'<cmd>lua require("fzf-lua").files()<cr>', 'Find'},
+	ff = {'<cmd>FzfLua files<cr>', 'Find'},
 	fb = {'<cmd>Oil<cr>', 'Browser'},
-	fr = {'<cmd>lua require("fzf-lua").oldfiles()<cr>', 'Recent'},
+	fr = {'<cmd>FzfLua oldfiles<cr>', 'Recent'},
 	fn = {'<cmd>enew<cr>', 'New'},
 	fs = {'<cmd>up<cr>', 'Save Current'},
 	fa = {'<cmd>wa<cr>', 'Save All'},
 
 	s = {name = 'Search'},
-	sg = {'<cmd>lua require("fzf-lua").lgrep_curbuf()<cr>', 'Current Buffer'},
-	sp = {'<cmd>lua require("fzf-lua").live_grep_native()<cr>', 'Project'},
-	sr = {'<cmd>lua require("fzf-lua").oldfiles()<cr>', 'Recent Files'},
-	sb = {'<cmd>lua require("fzf-lua").buffers()<cr>', 'All Buffers'},
-	sc = {'<cmd>lua require("fzf-lua").commands()<cr>', 'Commands'},
-	ss = {'<cmd>lua require("fzf-lua").spell_suggest()<cr>', 'Spelling'},
+	sg = {'<cmd>FzfLua lgrep_curbuf<cr>', 'Current Buffer'},
+	sp = {'<cmd>FzfLua live_grep_native<cr>', 'Project'},
+	sv = {'<cmd>FzfLua grep_visual<cr>', 'Selection'},
+	sc = {'<cmd>FzfLua commands<cr>', 'Commands'},
+	ss = {'<cmd>FzfLua spell_suggest<cr>', 'Spelling'},
+	sq = {'<cmd>FzfLua quickfix<cr>', 'Quick Fix'},
+	sC = {'<cmd>FzfLua changes<cr>', 'Changes'},
+
+	l = {name = 'Lsp'},
+	lr = {'<cmd>FzfLua lsp_references<cr>', 'Refs'},
+	ld = {'<cmd>FzfLua lsp_definitions<cr>', 'Defs'},
+	lD = {'<cmd>FzfLua lsp_declarations<cr>', 'Decs'},
+	lt = {'<cmd>FzfLua lsp_typedefs<cr>', 'TypeDefs'},
+	li = {'<cmd>FzfLua lsp_implementations<cr>', 'Impls'},
+	ls = {'<cmd>FzfLua lsp_live_workspace_symbols<cr>', 'Symbols'},
+	la = {'<cmd>FzfLua lsp_code_actions<cr>', 'Actions'},
+	lf = {'<cmd>FzfLua lsp_finder<cr>', 'Finder'},
 
 	w = {name = 'Window'},
 	wv = {'<C-w>v', 'Vertical Split'},
@@ -83,17 +95,25 @@ wk.register({
 	yf = {'<cmd>YankyCycleForward<cr>', 'Cycle Forward'},
 	yb = {'<cmd>YankyCycleBackward<cr>', 'Cycle Backward'},
 
+	h = {'<cmd>FzfLua help_tags<cr>', 'Help'},
+
 	t = {'<cmd>ToggleTerm<cr>', 'Terminal'},
 
 	Q = {'<cmd>qa<cr>', 'Quit'},
 
 	c = {'<cmd>CccPick<cr>', 'Color Picker'},
 
-	l = {'<cmd>Lazy<cr>', 'Lazy'},
+	L = {'<cmd>Lazy<cr>', 'Lazy'},
 
-	d = {'<cmd>TroubleToggle<cr>', 'Diagnostics'},
+	D = {'<cmd>TroubleToggle<cr>', 'Diagnostics'},
 
-	D = {'<cmd>lua require("dapui").toggle()<cr>', 'Debug'},
+	d = {name = 'Dap'},
+	db = {'<cmd>DapToggleBreakpoint<cr>', 'Breakpoint'},
+	dc = {'<cmd>FzfLua dap_commands<cr>', 'Commands'},
+	dC = {'<cmd>FzfLua dap_configuration<cr>', 'Configs'},
+	dB = {'<cmd>FzfLua dap_breakpoints<cr>', 'Breakpoints'},
+	dv = {'<cmd>FzfLua dap_variables<cr>', 'Variables'},
+	df = {'<cmd>FzfLua dap_frames<cr>', 'Frames'},
 }, {
 		mode = {'n', 'v'},
 		prefix = '<leader>'
