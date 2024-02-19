@@ -53,7 +53,7 @@ require("lazy").setup(
 			lazy = false,
 			priority = 1000,
 			config = function ()
-				vim.cmd([[colorscheme glitchcandy_nvim]])
+				vim.cmd([[colorscheme glitchcandy]])
 			end,
 		},
 		'ibhagwan/fzf-lua',
@@ -63,7 +63,6 @@ require("lazy").setup(
 		'folke/which-key.nvim',
 		'folke/trouble.nvim',
 		'stevearc/oil.nvim',
-		'akinsho/toggleterm.nvim',
 
 		'mfussenegger/nvim-dap',
 		'rcarriga/nvim-dap-ui',

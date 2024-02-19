@@ -31,15 +31,6 @@ require("oil").setup {
 	}
 }
 
-require('toggleterm').setup {
-	hide_numbers = true,
-	autochdir = true,
-	start_in_insert = true,
-	direction = 'horizontal',
-	auto_scroll = true,
-	shell = "/bin/fish",
-}
-
 require('fzf-lua').setup {
 	winopts = {border = 'double'},
 }
@@ -95,9 +86,15 @@ wk.register({
 	yf = {'<cmd>YankyCycleForward<cr>', 'Cycle Forward'},
 	yb = {'<cmd>YankyCycleBackward<cr>', 'Cycle Backward'},
 
-	h = {'<cmd>FzfLua help_tags<cr>', 'Help'},
+	d = {name = 'Dap'},
+	db = {'<cmd>DapToggleBreakpoint<cr>', 'Breakpoint'},
+	dc = {'<cmd>FzfLua dap_commands<cr>', 'Commands'},
+	dC = {'<cmd>FzfLua dap_configuration<cr>', 'Configs'},
+	dB = {'<cmd>FzfLua dap_breakpoints<cr>', 'Breakpoints'},
+	dv = {'<cmd>FzfLua dap_variables<cr>', 'Variables'},
+	df = {'<cmd>FzfLua dap_frames<cr>', 'Frames'},
 
-	t = {'<cmd>ToggleTerm<cr>', 'Terminal'},
+	h = {'<cmd>FzfLua help_tags<cr>', 'Help'},
 
 	Q = {'<cmd>qa<cr>', 'Quit'},
 
@@ -106,14 +103,6 @@ wk.register({
 	L = {'<cmd>Lazy<cr>', 'Lazy'},
 
 	D = {'<cmd>TroubleToggle<cr>', 'Diagnostics'},
-
-	d = {name = 'Dap'},
-	db = {'<cmd>DapToggleBreakpoint<cr>', 'Breakpoint'},
-	dc = {'<cmd>FzfLua dap_commands<cr>', 'Commands'},
-	dC = {'<cmd>FzfLua dap_configuration<cr>', 'Configs'},
-	dB = {'<cmd>FzfLua dap_breakpoints<cr>', 'Breakpoints'},
-	dv = {'<cmd>FzfLua dap_variables<cr>', 'Variables'},
-	df = {'<cmd>FzfLua dap_frames<cr>', 'Frames'},
 }, {
 		mode = {'n', 'v'},
 		prefix = '<leader>'

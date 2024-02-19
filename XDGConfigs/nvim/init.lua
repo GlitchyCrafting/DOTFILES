@@ -22,44 +22,44 @@ o.autoindent     = true
 o.wrap           = true
 o.textwidth      = 80
 o.tabstop        = 4
-o.shiftwidth     = 4
+o.shiftwidth     = 0
 o.softtabstop    = -1
-o.formatoptions  = 'crqan1'
-o.ignorecase     = true
-o.smartcase      = true
+o.formatoptions  = 'rqn1jp'
 o.backup         = false
-o.writebackup    = false
+o.writebackup    = true
 o.undofile       = true
 o.swapfile       = false
 o.history        = 50
 o.splitright     = true
 o.splitbelow     = true
 o.foldmethod     = 'expr'
-o.foldexpr = "nvim_treesitter#foldexpr()"
+o.foldexpr       = "nvim_treesitter#foldexpr()"
 o.foldlevelstart = 99
 o.foldnestmax    = 3
 o.foldminlines   = 1
-opt.mouse        = "a"
+o.encoding       = 'utf-8'
+o.showbreak      = '+++ '
+o.virtualedit    = 'block,onemore'
+o.incsearch      = true
+opt.mouse        = ""
 g.mapleader      = ' '
 g.maplocalleader = ' '
 
+local gruff_au = A.nvim_create_augroup('gruff', { clear = true })
+
 A.nvim_create_autocmd('TextYankPost', {
-	group = num_au,
+	group = gruff_au,
 	callback = function()
 		vim.highlight.on_yank({higroup = 'Visual', timeout = 2000})
 	end
 })
 
-vim.cmd([[
-au BufRead *.vert,*.frag,*.tesc,*.tese,*.geom,*.comp :set filetype=glsl
-]])
+A.nvim_create_autocmd('BufRead', {
+	group = gruff_au,
+	pattern = {"*.vert", "*.frag", "*.tesc", "*.tese", "*.geom", "*.comp"},
+	callback = function()
+		vim.bo.filetype = "glsl"
+	end
+})
 
 require('plugins')
-
-if vim.g.neovide then
-	vim.o.guifont = "FiraCode_Nerd_Font,Noto_Color_Emoji:h12"
-	vim.g.transparency = 0.85
-	vim.g.neovide_transparency = 0.85
-	vim.g.neovide_hide_mouse_when_typing = true
-	vim.g.neovide_cursor_vfx_mode = "sonicboom"
-end
