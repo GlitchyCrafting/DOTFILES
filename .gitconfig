@@ -1,0 +1,27 @@
+[init]
+	defaultBranch = main
+[credential]
+	helper = cache
+[protocol "file"]
+	allow = always
+[user]
+	email = glitchycrafting@gmail.com
+	name = Gruficlath
+	signingKey = /home/gruff/.ssh/id_ed25519
+[pull]
+	rebase = true
+[rerere]
+	enabled = true
+[branch]
+	sort = -committerdate
+[gpg]
+	format = ssh
+[maintenance]
+	repo = /home/gruff/Projects/C/GruffLib
+[diff]
+	tool = nvimdiff
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

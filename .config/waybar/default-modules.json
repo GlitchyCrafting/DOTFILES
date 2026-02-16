@@ -1,0 +1,59 @@
+{
+	"tray": {
+		"spacing": 5,
+		"show-passive-items": true,
+	},
+	"clock": {
+		"format": "{:L%D %T}",
+		"timezone": "America/Indiana/Knox",
+		"tooltip": true,
+		"tooltip-format": "<tt><small>{calendar}</small></tt>",
+		"calendar": {
+			"mode": "year",
+			"mode-mon-col": 4,
+			"weeks-pos": "right",
+			"on-scroll": 1,
+			"format": {
+				"months":     "<span color='#9E48FF'><b>{}</b></span>",
+				"days":       "<span color='#7F7399'><b>{}</b></span>",
+				"weeks":      "<span color='#4560FF'><b>W{}</b></span>",
+				"weekdays":   "<span color='#FF5B24'><b>{}</b></span>",
+				"today":      "<span color='#FFFCED'><b>{}</b></span>"
+			}
+		},
+		"interval": 1
+	},
+	"cpu": {
+		"interval": 1,
+		"format": "{usage}% @ {avg_frequency}GHz"
+	},
+	"memory": {
+		"interval": 1,
+		"format": "{used}/{total}GiB ({percentage}%) | {swapUsed}/{swapTotal}GiB ({swapPercentage}%)"
+	},
+	"network": {
+		"interface": "enp10s0",
+		"interval": 1,
+		"format": "↑{bandwidthUpBytes} ↓{bandwidthDownBytes}",
+		"format-wifi": "{essid} {frequency}GHz {signalStrength}% ↑{bandwidthUpBytes} ↓{bandwidthDownBytes}",
+		"format-ethernet": "↑{bandwidthUpBytes} ↓{bandwidthDownBytes}"
+	},
+	"battery": {
+		"interval": 1,
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "BATT: {capacity}% | Draw:{power}W | {timeTo}",
+		"format-charging": "Batt:{capacity}% | Draw:{power}W | Full:{timeTo}",
+		"format-discharging": "Batt:{capacity}% | Draw:{power}W | Empty:{timeTo}"
+	},
+	"mpris": {
+		"interval": 1,
+		"format": "{status_icon}{title} - {artist} [{position}/{length}]",
+		"status-icons": {
+			"paused": "⏸",
+		},
+		"title-len": 40
+	}
+}
