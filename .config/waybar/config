@@ -13,8 +13,8 @@
 	"radius": 0,
 	"ipc": true,
 	"modules-left": ["clock"],
-	//"modules-center": ["cpu", "memory", "network", "mpris"],
-	"modules-center": ["mpris"],
+	"modules-center": ["cpu", "memory", "network"],
+	//"modules-center": ["mpris"],
 	"modules-right": ["tray", "battery"],
 	"include": ["~/.config/waybar/default-modules.json"]
 },
@@ -30,7 +30,7 @@
 	"radius": 0,
 	"ipc": true,
 	"modules-left": ["clock"],
-	"modules-center": ["mpris"],
+	//"modules-center": ["mpris"],
 	"modules-right": ["tray", "battery"],
 	"include": ["~/.config/waybar/default-modules.json"]
 }
