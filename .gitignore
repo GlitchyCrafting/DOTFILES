@@ -30,8 +30,6 @@
 !.config/nvim/*
 !.config/waybar/
 !.config/waybar/*
-!.config/wlogout/
-!.config/wlogout/*
 !.config/starship.toml
 
 !.gitconfig
